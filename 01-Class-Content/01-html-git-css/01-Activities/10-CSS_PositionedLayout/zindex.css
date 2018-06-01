@@ -18,7 +18,9 @@
 
 .box-1 {
   top: 10px;
+  background-color:black;
   left: 10px;
+  z-index:15;
 }
 
 .box-2 {
