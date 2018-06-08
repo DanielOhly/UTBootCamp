@@ -31,6 +31,11 @@ body {
   margin: 40px auto;
 }
 
+.wrapper {
+  /* Box-model */
+  background-color:orange;
+}
+
 #main-content,
 #sidebar {
   /* Box-model */
