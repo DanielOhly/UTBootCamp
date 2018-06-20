@@ -1,4 +1,4 @@
-// CRASH COURSE JS
+// CRASH COURSE JS June
 // ==========================================================
 
 // 1. BASIC VARIABLES
