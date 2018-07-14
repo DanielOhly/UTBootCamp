@@ -92,14 +92,15 @@
 
     // Initialize Firebase
     var config = {
-      apiKey: "AIzaSyCanlYIc7n-Wel8wDeaMxMzYtViVVCOwpI",
-      authDomain: "recent-user-with-push.firebaseapp.com",
-      databaseURL: "https://recent-user-with-push.firebaseio.com",
-      storageBucket: "recent-user-with-push.appspot.com",
-      messagingSenderId: "208476116054"
-    };
-
-    firebase.initializeApp(config);
+    apiKey: "AIzaSyCMOJCacz6EvKI83F1W4eGmxlNEfTQFiQ0",
+    authDomain: "timesheet-2207b.firebaseapp.com",
+    databaseURL: "https://timesheet-2207b.firebaseio.com",
+    projectId: "timesheet-2207b",
+    storageBucket: "timesheet-2207b.appspot.com",
+    messagingSenderId: "276869475490"
+  };
+  
+  firebase.initializeApp(config);
 
     // Create a variable to reference the database.
     var database = firebase.database();
@@ -128,25 +129,26 @@
         comment: comment,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
-
+  console.log(firebase.database.ServerValue.TIMESTAMP);
     });
 
     // Firebase watcher .on("child_added"
     database.ref().on("child_added", function(snapshot) {
       // storing the snapshot.val() in a variable for convenience
       var sv = snapshot.val();
-
+        console.log(snapshot.val());
       // Console.loging the last user's data
-      console.log(sv.name);
-      console.log(sv.email);
-      console.log(sv.age);
-      console.log(sv.comment);
+      // console.log(sv.name);
+      // console.log(sv.email);
+      // console.log(sv.age);
+      // console.log(sv.comment);
 
       // Change the HTML to reflect
-      $("#name-display").text(sv.name);
-      $("#email-display").text(sv.email);
-      $("#age-display").text(sv.age);
-      $("#comment-display").text(sv.comment);
+      $("#name-display").text(snapshot.val());
+      // $("#name-display").text(sv.name);
+      // $("#email-display").text(sv.email);
+      // $("#age-display").text(sv.age);
+      // $("#comment-display").text(sv.comment);
 
       // Handle the errors
     }, function(errorObject) {

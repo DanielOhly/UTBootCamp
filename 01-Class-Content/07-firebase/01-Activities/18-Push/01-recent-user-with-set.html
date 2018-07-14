@@ -92,13 +92,16 @@
 
     // Initialize Firebase
     var config = {
-      apiKey: "AIzaSyA5eYKsB8T2q6rMGdKSvac6eQsWTzsZEjE",
-      authDomain: "fir-recent-user.firebaseapp.com",
-      databaseURL: "https://fir-recent-user.firebaseio.com",
-      storageBucket: "fir-recent-user.appspot.com"
-    };
+    apiKey: "AIzaSyCMOJCacz6EvKI83F1W4eGmxlNEfTQFiQ0",
+    authDomain: "timesheet-2207b.firebaseapp.com",
+    databaseURL: "https://timesheet-2207b.firebaseio.com",
+    projectId: "timesheet-2207b",
+    storageBucket: "timesheet-2207b.appspot.com",
+    messagingSenderId: "276869475490"
+  };
+  
+  firebase.initializeApp(config);
 
-    firebase.initializeApp(config);
 
     // Create a variable to reference the database.
     var database = firebase.database();
