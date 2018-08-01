@@ -1,5 +1,4 @@
-import myBands from "./bands.js";
-let bandList = myBands;
+let bandList = require("./bands.js");
 // Grabs the genre information
 if (process.argv[2]) {
   var genre = process.argv[2];
