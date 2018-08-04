@@ -1,13 +1,12 @@
 // Load the fs package to read and write
 var fs = require("fs");
-console.log((Math.random()))
-console.log(Math.round((Math.random() * 10)));
+
 // Take two arguments.
 // The first will be the action (i.e. "deposit", "withdraw", etc.)
 // The second will be the amount that will be added, withdrawn, etc.
 var action = process.argv[2];
-
 var value = process.argv[3];
+
 // We will then create a switch-case statement (if-else would also work).
 // The switch-case will direct which function gets run.
 switch (action) {
@@ -49,7 +48,7 @@ function total() {
     }
 
     // We will then print the final balance rounded to two decimal places.
-    console.log("You have a total of " + result.toFixed(2)); 
+    console.log("You have a total of " + result.toFixed(2));
   });
 }
 
@@ -93,8 +92,6 @@ function lotto() {
   });
 
   // Then grab a random number
-  // math.round(Math.random() *10)
-  
   var chance = Math.floor((Math.random() * 10) + 1);
 
   // If the random number equals 1...

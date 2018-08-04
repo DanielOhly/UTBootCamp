@@ -1,4 +1,3 @@
-console.log("keep it on da hush - lucacris")
 var essentials = {
   drink: "water",
   eat: "snickers",
@@ -18,4 +17,7 @@ var nonessentials = {
 // module.exports is essentially an object that we can add data or variables to
 // We can access them from other files using the 'require' keyword.
 
-module.exports = "batman"
+module.exports = {
+  essentials: essentials,
+  niceToHaves: niceToHaves
+};
