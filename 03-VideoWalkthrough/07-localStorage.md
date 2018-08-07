@@ -4,6 +4,8 @@
 
 #### Homework #6 - Your Personal GIF Paradise
 
+We go over how to create a simple GIPHY search engine using jQuery, AJAX calls, HTML, and JavaScript.
+[Watch the Video!](https://www.youtube.com/watch?v=V67yKAonLa4)
 
 ### Key activities from the week
 
