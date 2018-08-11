@@ -1,6 +1,6 @@
 // constructor function which can take in a series of values and create objects
 // with the properties contained inside
-function Character(name, profession, gender, age, strength, hitpoints) {
+function Character(name="antonio", profession, gender, age, strength, hitpoints) {
   this.name = name;
   this.profession = profession;
   this.gender = gender;

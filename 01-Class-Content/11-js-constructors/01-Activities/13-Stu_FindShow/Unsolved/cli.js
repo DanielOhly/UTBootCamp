@@ -1,12 +1,12 @@
 var TV = require("./tv");
 
 // Create a new TV object
-var tv = new TV();
+let tv = new TV();
 
 var search = process.argv[2];
 var term = process.argv.slice(3).join(" ");
 
-var tv = new TV();
+let tv = new TV();
 
 if (!search) {
   search = "show";
