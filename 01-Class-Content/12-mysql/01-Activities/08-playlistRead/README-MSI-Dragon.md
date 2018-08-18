@@ -1,6 +1,6 @@
 # **Instructions**
 
-* Using the connection and song data you put together earlier into the class, we are going to print playlists to the Git Bash console based upon the genre or artist.
+* We are going to print playlists to the Git Bash console based upon the genre or artist.
 
 * First create code that prints all songs within your database to the terminal.
 

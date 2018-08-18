@@ -8,7 +8,6 @@ USE animals_db;
 
 -- Creates the table "people" within animals_db --
 CREATE TABLE people (
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
   -- Makes a string column called "name" which cannot contain null --
   name VARCHAR(30) NOT NULL,
   -- Makes a boolean column called "has_pet" which cannot contain null --
@@ -16,8 +15,7 @@ CREATE TABLE people (
   -- Makes a sting column called "pet_name" --
   pet_name VARCHAR(30),
   -- Makes an numeric column called "pet_age" --
-  pet_age INTEGER(10),
-  PRIMARY KEY (id)
+  pet_age INTEGER(10)
 );
 
 -- Creates new rows containing data in all named columns --
