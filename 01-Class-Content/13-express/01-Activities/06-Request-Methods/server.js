@@ -21,11 +21,12 @@ function handleRequest(req, res) {
   req.on("end", function() {
 
     // Log (server-side) the request method, as well as the data received!
+    // console.log(req);
     console.log("You did a", req.method, "with the data:\n", requestData);
     res.end();
   });
 
-};
+}
 
 // Start our server
 server.listen(PORT, function() {
