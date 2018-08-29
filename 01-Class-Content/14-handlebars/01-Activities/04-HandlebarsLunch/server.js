@@ -1,6 +1,6 @@
 // Dependencies
 var express = require("express");
-var exphbs = require("express-handlebars");
+var expressBars = require("express-handlebars");
 
 // Create an instance of the express app.
 var app = express();
@@ -10,14 +10,15 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", expressBars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Data
 var lunches = [
   {
-    lunch: "Beet & Goat Cheese Salad with minestrone soup."
-  }, {
+    lunch: "BatGoat & Goat Cheese Salad with minestrone soup."
+  },
+  {
     lunch: "Pizza, two double veggie burgers, fries with a Big Gulp"
   }
 ];
