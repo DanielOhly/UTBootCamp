@@ -2,10 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 var app = express();
-
-// Set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
+var PORT = 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,8 +19,8 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "password",
-  database: "task_saver_db"
+  password: "",
+  database: "quotes_db"
 });
 
 connection.connect(function(err) {
@@ -31,25 +28,10 @@ connection.connect(function(err) {
     console.error("error connecting: " + err.stack);
     return;
   }
-
   console.log("connected as id " + connection.threadId);
 });
 
-// Root get route
-app.get("/", function(req, res) {
-  connection.query("SELECT * FROM tasks;", function(err, data) {
-    if (err) throw err;
-    res.render("index", { tasks: data });
-  });
-});
-
-// Post route -> back to home
-app.post("/", function(req, res) {
-  connection.query("INSERT INTO tasks (task) VALUES (?)", [req.body.task], function(err, result) {
-    if (err) throw err;
-    res.redirect("/");
-  });
-});
+// Express and MySQL code should go here.
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

@@ -20,16 +20,21 @@ var icecreams = [
   { name: "banana", price: 1, awesomeness: 1 },
   { name: "greentea", price: 5, awesomeness: 7 },
   { name: "jawbreakers", price: 6, awesomeness: 2 },
-  { name: "vanilla", price: 10, awesomeness: 3 }
+  { name: "vanilla", price: 15, awesomeness: 3 }
 ];
 
 // Routes
 app.get("/icecreams/:name", function(req, res) {
-  for (var i = 0; i < icecreams.length; i++) {
-    if (icecreams[i].name === req.params.name) {
-      return res.render("icecream", icecreams[i]);
-    }
-  }
+  let iceyArray = icecreams.map((arrayValue, iterator) => console.log(iterator));
+  // console.log(ics);
+  res.render("ics", {
+    ics: iceyArray
+  });
+  // for (var i = 0; i < icecreams.length; i++) {
+  //   if (icecreams[i].name === req.params.name) {
+  //     return res.render("icecream", icecreams[i]);
+  //   }
+  // }
 });
 
 app.get("/icecreams", function(req, res) {

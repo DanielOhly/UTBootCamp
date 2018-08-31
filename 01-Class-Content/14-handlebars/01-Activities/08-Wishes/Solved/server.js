@@ -23,7 +23,7 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "password",
-  database: "task_saver_db"
+  database: "wishes_db"
 });
 
 connection.connect(function(err) {
@@ -35,18 +35,36 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Root get route
+// Root get route.
 app.get("/", function(req, res) {
-  connection.query("SELECT * FROM tasks;", function(err, data) {
-    if (err) throw err;
-    res.render("index", { tasks: data });
+  connection.query("SELECT * FROM wishes;", function(err, data) {
+    if (err) {
+      throw err;
+    }
+
+    // Test it.
+    // console.log('The solution is: ', data);
+
+    // Test it.
+    // res.send(data);
+
+    res.render("index", { wishes: data });
   });
 });
 
 // Post route -> back to home
 app.post("/", function(req, res) {
-  connection.query("INSERT INTO tasks (task) VALUES (?)", [req.body.task], function(err, result) {
-    if (err) throw err;
+  // Test it.
+  // console.log('You sent, ' + req.body.wish);
+
+  // Test it.
+  // res.send('You sent, ' + req.body.wish)
+
+  connection.query("INSERT INTO wishes (wish) VALUES (?)", [req.body.wish], function(err, result) {
+    if (err) {
+      throw err;
+    }
+
     res.redirect("/");
   });
 });
