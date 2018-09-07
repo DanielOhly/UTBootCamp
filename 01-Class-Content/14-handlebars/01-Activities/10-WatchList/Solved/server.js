@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "password",
+  password: "",
   database: "movie_planner_db"
 });
 
@@ -48,10 +48,7 @@ app.get("/", function(req, res) {
 
 // Create a new movie
 app.post("/movies", function(req, res) {
-  connection.query("INSERT INTO movies (movie) VALUES (?)", [req.body.movie], function(
-    err,
-    result
-  ) {
+  connection.query("INSERT INTO movies (movie) VALUES (?)", [req.body.movie], function(err, result) {
     if (err) {
       return res.status(500).end();
     }
@@ -75,20 +72,18 @@ app.get("/movies", function(req, res) {
 
 // Update a movie
 app.put("/movies/:id", function(req, res) {
-  connection.query(
-    "UPDATE movies SET movie = ? WHERE id = ?",
-    [req.body.movie, req.params.id],
-    function(err, result) {
-      if (err) {
-        // If an error occurred, send a generic server failure
-        return res.status(500).end();
-      } else if (result.changedRows === 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      }
-      res.status(200).end();
+  connection.query("UPDATE movies SET movie = ? WHERE id = ?", [req.body.movie, req.params.id], function(err, result) {
+    if (err) {
+      // If an error occurred, send a generic server failure
+      return res.status(500).end();
     }
-  );
+    else if (result.changedRows === 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    }
+    res.status(200).end();
+
+  });
 });
 
 // Delete a movie
@@ -97,11 +92,13 @@ app.delete("/movies/:id", function(req, res) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
-    } else if (result.affectedRows === 0) {
+    }
+    else if (result.affectedRows === 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
     }
     res.status(200).end();
+
   });
 });
 

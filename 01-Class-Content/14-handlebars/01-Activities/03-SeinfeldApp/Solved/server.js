@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "password",
+  password: "",
   database: "seinfeld"
 });
 
@@ -67,10 +67,7 @@ app.get("/coolness-chart", function(req, res) {
 });
 
 app.get("/attitude-chart/:att", function(req, res) {
-  connection.query("SELECT * FROM actors where attitude = ?", [req.params.att], function(
-    err,
-    result
-  ) {
+  connection.query("SELECT * FROM actors where attitude = ?", [req.params.att], function(err, result) {
     var html = "<h1>Actors With an Attitude of " + req.params.att + "</h1>";
 
     html += "<ul>";

@@ -11,10 +11,5 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0"
-  },
-  "devDependencies": {
-    "eslint": "^5.4.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
   }
 }

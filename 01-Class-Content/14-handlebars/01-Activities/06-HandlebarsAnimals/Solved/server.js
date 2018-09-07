@@ -13,23 +13,19 @@ var animals = [
     animalType: "dog",
     pet: true,
     fierceness: 4
-  },
-  {
+  }, {
     animalType: "cat",
     pet: true,
     fierceness: 10
-  },
-  {
+  }, {
     animalType: "giraffe",
     pet: false,
     fierceness: 4
-  },
-  {
+  }, {
     animalType: "zebra",
     pet: false,
     fierceness: 8
-  },
-  {
+  }, {
     animalType: "lion",
     pet: false,
     fierceness: 10
@@ -48,7 +44,7 @@ app.get("/all-pets", function(req, res) {
   // Handlebars requires an object to be sent to the index handlebars file.
 
   // 2. Loop through the animals, and send those that are pets to the index handlebars file.
-  const data = {
+  var data = {
     animals: []
   };
 

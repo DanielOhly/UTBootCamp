@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "password",
+  password: "",
   database: "day_planner_db"
 });
 
@@ -38,7 +38,6 @@ connection.connect(function(err) {
 // Use Handlebars to render the main index.html page with the todos in it.
 app.get("/", function(req, res) {
   connection.query("SELECT * FROM plans;", function(err, data) {
-    // err = new Error("batman messed stuff up");
     if (err) {
       return res.status(500).end();
     }
@@ -73,20 +72,18 @@ app.get("/todos", function(req, res) {
 
 // Update a todo
 app.put("/todos/:id", function(req, res) {
-  connection.query(
-    "UPDATE plans SET plan = ? WHERE id = ?",
-    [req.body.plan, req.params.id],
-    function(err, result) {
-      if (err) {
-        // If an error occurred, send a generic server failure
-        return res.status(500).end();
-      } else if (result.changedRows === 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      }
-      res.status(200).end();
+  connection.query("UPDATE plans SET plan = ? WHERE id = ?", [req.body.plan, req.params.id], function(err, result) {
+    if (err) {
+      // If an error occurred, send a generic server failure
+      return res.status(500).end();
     }
-  );
+    else if (result.changedRows === 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    }
+    res.status(200).end();
+
+  });
 });
 
 // Delete a todo
@@ -95,11 +92,13 @@ app.delete("/todos/:id", function(req, res) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
-    } else if (result.affectedRows === 0) {
+    }
+    else if (result.affectedRows === 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
     }
     res.status(200).end();
+
   });
 });
 

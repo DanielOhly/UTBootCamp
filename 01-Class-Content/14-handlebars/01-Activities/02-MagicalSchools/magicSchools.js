@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "password",
+  password: "",
   database: "wizard_schools_db"
 });
 
@@ -29,9 +29,11 @@ connection.connect(function(err) {
 
 // Routes
 app.get("/", function(req, res) {
+
   // If the main route is hit, then we initiate a SQL query to grab all records.
   // All of the resulting records are stored in the variable "result."
   connection.query("SELECT * FROM schools", function(err, result) {
+
     // We then begin building out HTML elements for the page.
     var html = "<h1> Magical Schools </h1>";
 
