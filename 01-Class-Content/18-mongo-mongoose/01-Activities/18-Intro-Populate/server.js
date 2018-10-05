@@ -21,7 +21,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/populate", { useNewUrlParser: true });
+mongoose.connect(
+  "mongodb://localhost/populate",
+  { useNewUrlParser: true }
+);
 
 // When the server starts, create and save a new Library document to the db
 // The "unique" rule in the Library model's schema will prevent duplicate libraries from being added to the server
@@ -92,7 +95,9 @@ app.get("/populated", function(req, res) {
     // Specify that we want to populate the retrieved libraries with any associated books
     .populate("books")
     .then(function(dbLibrary) {
+      // console.log(dbLibrary.books.map(objectId => db.Book.find({ objectId: objectId(objectId) })));
       // If any Libraries are found, send them to the client with any associated Books
+      console.log("data");
       res.json(dbLibrary);
     })
     .catch(function(err) {
