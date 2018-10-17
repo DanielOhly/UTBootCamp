@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 import Jumbotron from "../../components/Jumbotron";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Col, Row, Container } from "../../components/Grid";
@@ -10,9 +11,18 @@ class Books extends Component {
   state = {
     books: []
   };
-
-  // Add code here to get all books from the database and save them to this.state.books
-
+  componentDidMount() {
+    //1. Do the ajax request
+    API.getBooks()
+      .then(function(response) {
+        console.log(response);
+        //2. set the state to the books
+        this.setState({ books: response.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
   render() {
     return (
       <Container fluid>
